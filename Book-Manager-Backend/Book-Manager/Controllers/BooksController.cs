@@ -11,8 +11,8 @@ namespace Book_Manager.Controllers
         private static List<Book> books = new List<Book>
         {
             new Book { Id = 1, Title = "Atomic Habits", Author = "James Clear", Isbn = "9780735211292", PublicationDate = new DateTime(2018, 10, 16) },
-            new Book { Id = 2, Title = "The Alchemist", Author = "Paulo Coelho", Isbn = "9780061122415", PublicationDate= new DateTime(1988) },
-            new Book { Id = 3, Title = "Gamperaliya", Author = "Martin Wickramasinghe", Isbn = "9789550201365", PublicationDate = new DateTime(1944) }
+            new Book { Id = 2, Title = "The Alchemist", Author = "Paulo Coelho", Isbn = "9780061122415", PublicationDate= new DateTime(1988, 07, 05) },
+            new Book { Id = 3, Title = "Gamperaliya", Author = "Martin Wickramasinghe", Isbn = "9789550201365", PublicationDate = new DateTime(1944, 08, 26) }
         };
 
         private static int nextId = 4;
