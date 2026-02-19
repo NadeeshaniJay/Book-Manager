@@ -1,0 +1,1 @@
+Web Application for manage books for users. It allows users manage their book collection. Users can add books to their collection, view their collection, update their books and delete books from their collection. The application is built using Angular for the frontend and .NET core for the backend.
