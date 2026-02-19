@@ -1,0 +1,72 @@
+<div class="page-header">
+    <div class="header-left">
+        <h2>Book List <span class="count">({{ filteredBooks.length }})</span></h2>
+    </div>
+    <div class="header-right">
+        <input
+        class="search-input"
+        [(ngModel)]="searchTerm"
+        placeholder="Search by title, author or ISBN..."
+        />
+        <button class="btn-add" (click)="openAddModal()">
+        Add New Book
+        </button>
+    </div>
+</div>
+
+<div class="list-card">
+    @if (filteredBooks.length === 0) {
+        <div class="empty-state">
+            <p>No books found. Add your first book above!</p>
+        </div>
+    }
+
+    @if (filteredBooks.length > 0) {
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>ISBN</th>
+                        <th>Publication Date</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+            <tbody>
+                @for (book of filteredBooks; track book.id; let i = $index) {
+                    <tr>
+                        <td>{{ i + 1 }}</td>
+                        <td><strong>{{ book.title }}</strong></td>
+                        <td>{{ book.author }}</td>
+                        <td><code>{{ book.isbn }}</code></td>
+                        <td>{{ book.publicationDate | date: 'mediumDate' }}</td>
+                        <td>
+                            <button class="btn-edit" (click)="openEditModal(book)">Edit</button>
+                            <button class="btn-delete" (click)="onDelete(book.id)">Delete</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+            </table>
+        </div>
+    }
+</div>
+
+
+@if (showModal) {
+    <div class="modal-overlay" (click)="closeModalOnOverlay($event)">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h2>{{ isEditMode ? 'Edit Book' : 'Add New Book' }}</h2>
+                <button class="modal-close" (click)="closeModal()">✕</button>
+            </div>
+            <app-bookform
+                [editBook]="selectedBook"
+                (bookSaved)="onBookSaved()"
+                (cancelled)="closeModal()">
+            </app-bookform>
+        </div>
+    </div>
+}
