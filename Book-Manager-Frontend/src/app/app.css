@@ -6,12 +6,12 @@
 }
 
 header {
-    background: linear-gradient(135deg, #1a73e8, #0da146);
+    background: linear-gradient(135deg, #667eea, #95c7e4);
     color: white;
     padding: 24px 32px;
     border-radius: 12px;
     margin-bottom: 28px;
-    box-shadow: 0 4px 12px rgba(26,115,232,0.3);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
 }
 
 header h1 {

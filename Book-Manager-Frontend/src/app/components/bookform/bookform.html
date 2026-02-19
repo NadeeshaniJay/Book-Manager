@@ -2,14 +2,14 @@
 
     @if (isEditMode) {
         <div class="edit-banner">
-        You are editing an existing book. Make your changes and click Update.
+            Make your changes and click Update
         </div>
     }
 
     <form [formGroup]="form" (ngSubmit)="submit()">
         <div class="form-grid">
             <div class="form-group">
-                <label>Title</label>
+                <label>Title *</label>
                 <input formControlName="title" placeholder="Enter book title" />
                 @if (form.get('title')?.invalid && form.get('title')?.touched) {
                 <span class="error">Title is required</span>
@@ -17,7 +17,7 @@
             </div>
 
             <div class="form-group">
-                <label>Author</label>
+                <label>Author *</label>
                 <input formControlName="author" placeholder="Enter author name" />
                 @if (form.get('author')?.invalid && form.get('author')?.touched) {
                 <span class="error">Author is required</span>
@@ -25,7 +25,7 @@
             </div>
 
             <div class="form-group">
-                <label>ISBN</label>
+                <label>ISBN *</label>
                 <input formControlName="isbn" placeholder="Enter ISBN number" />
                 @if (form.get('isbn')?.invalid && form.get('isbn')?.touched) {
                 <span class="error">ISBN is required</span>
@@ -33,7 +33,7 @@
             </div>
 
             <div class="form-group">
-                <label>Publication Date</label>
+                <label>Publication Date *</label>
                 <input type="date" formControlName="publicationDate" />
                 @if (form.get('publicationDate')?.invalid && form.get('publicationDate')?.touched) {
                 <span class="error">Date is required</span>
@@ -42,15 +42,14 @@
         </div>
 
         <div class="form-actions">
-            <button type="submit" class="btn-primary">
-                {{ isEditMode ? 'Update Book' : 'Add Book' }}
-            </button>
-
             @if (isEditMode) {
-                <button type="button" class="btn-secondary" (click)="cancelEdit()">
-                Cancel
+                <button type="button" class="btn-cancel" (click)="cancelEdit()">
+                    Cancel
                 </button>
             }
+            <button type="submit" class="btn-submit" [disabled]="form.invalid">
+                {{ isEditMode ? 'Update Book' : 'Add Book' }}
+            </button>
         </div>
 
     </form>

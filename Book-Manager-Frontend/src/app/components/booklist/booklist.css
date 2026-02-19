@@ -4,20 +4,26 @@
     align-items: center;
     margin-bottom: 20px;
     flex-wrap: wrap;
-    gap: 12px;
+    gap: 16px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 16px 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
-.header-left h2 {
-    font-size: 22px;
+.page-header h2 {
+    font-size: 20px;
     color: #333;
+    margin: 0;
 }
 
 .count {
-    color: #1a73e8;
+    color: #667eea;
     font-size: 16px;
+    font-weight: 400;
 }
 
-.header-right {
+.actions {
     display: flex;
     align-items: center;
     gap: 12px;
@@ -25,41 +31,46 @@
 }
 
 .search-input {
-    padding: 9px 14px;
-    border: 1.5px solid #ddd;
-    border-radius: 8px;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
     font-size: 14px;
-    width: 260px;
-    outline: none;
-    transition: border-color 0.2s;
+    width: 240px;
+    font-family: inherit;
+    background: white;
+    margin-right: 10px;
 }
 
 .search-input:focus {
-    border-color: #1a73e8;
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
 .btn-add {
-    background: #1a73e8;
+    background: #667eea;
     color: white;
     border: none;
-    padding: 10px 20px;
-    border-radius: 8px;
+    padding: 8px 18px;
+    border-radius: 6px;
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 500;
     cursor: pointer;
-    transition: background 0.2s;
-    white-space: nowrap;
+    font-family: inherit;
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
 }
 
 .btn-add:hover {
-    background: #1557b0;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
 }
 
 .list-card {
-    background: white;
-    border-radius: 12px;
-    padding: 28px 32px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    background: rgba(255, 255, 255, 0.98);
+    border-radius: 10px;
+    padding: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 }
 
 .table-wrapper {
@@ -73,27 +84,26 @@ table {
 }
 
 thead tr {
-    background: #f8f9fa;
+    background: #f5f5f5;
 }
 
 th {
     text-align: left;
-    padding: 12px 16px;
-    color: #555;
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    border-bottom: 2px solid #eee;
+    padding: 10px 12px;
+    color: #666;
+    font-size: 13px;
+    font-weight: 600;
+    border-bottom: 2px solid #ddd;
 }
 
 td {
-    padding: 14px 16px;
-    border-bottom: 1px solid #f0f0f0;
+    padding: 12px;
+    border-bottom: 1px solid #eee;
     color: #333;
 }
 
 tbody tr:hover {
-    background: #fafbff;
+    background: #f9f9f9;
 }
 
 tbody tr:last-child td {
@@ -101,45 +111,75 @@ tbody tr:last-child td {
 }
 
 code {
-    background: #f0f4ff;
-    padding: 2px 8px;
+    background: rgba(102, 126, 234, 0.1);
+    padding: 3px 8px;
     border-radius: 4px;
     font-size: 13px;
-    color: #1a73e8;
+    color: #667eea;
+    font-weight: 500;
 }
 
 .btn-edit, .btn-delete {
     border: none;
-    padding: 6px 14px;
-    border-radius: 6px;
+    padding: 6px 12px;
+    border-radius: 4px;
     font-size: 13px;
     cursor: pointer;
     margin-right: 6px;
     font-weight: 500;
-    transition: opacity 0.2s;
+    font-family: inherit;
 }
 
 .btn-edit {
-    background: #e8f0fe;
-    color: #1a73e8;
+    background: rgba(102, 126, 234, 0.15);
+    color: #667eea;
 }
 
 .btn-edit:hover {
-    opacity: 0.8;
+    background: rgba(102, 126, 234, 0.25);
 }
 
 .btn-delete {
-    background: #fce8e6;
-    color: #e53935;
+    background: #ffebee;
+    color: #c62828;
 }
 
 .btn-delete:hover {
-    opacity: 0.8;
+    background: #ffcdd2;
 }
 
 .empty-state {
     text-align: center;
-    padding: 40px;
+    padding: 60px 20px;
     color: #999;
     font-size: 15px;
+}
+
+@media (max-width: 768px) {
+    .page-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .actions {
+        width: 100%;
+        flex-direction: column;
+    }
+    
+    .search-input {
+        width: 100%;
+    }
+    
+    .btn-add {
+        width: 100%;
+    }
+    
+    .list-card {
+        padding: 16px;
+    }
+    
+    th, td {
+        padding: 8px;
+        font-size: 13px;
+    }
 }
